@@ -1,3 +1,6 @@
+#isShownMenu {
+  display: none;
+}
 .menu {
   display: inline;
 }
@@ -53,6 +56,7 @@
   width: 40px;
   color: #333;
   background-color: transparent;
+  display: none;
 }
 
 .menu-toggle:active span {
@@ -69,5 +73,37 @@
   .navbar li {
     margin: 10px 0;
     text-align: center;
+  }
+  .open {
+    display: block;
+  }
+  .hidden {
+    display: none;
+  }
+  .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 35px;
+  }
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .navbar ul {
+    display: block;
+  }
+  .navbar li {
+    display: block;
+    text-align: center;
+  }
+  .menu-toggle {
+    display: inline;
+    font-size: large;
+    text-align: center;
+  }
+  #isShownMenu:checked ~ .menu ul {
+    display: none;
   }
 }

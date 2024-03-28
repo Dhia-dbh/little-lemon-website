@@ -6,11 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
   const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
 
   return (
     <header>
@@ -18,7 +13,8 @@ const NavBar = () => {
         <div className="logo" onClick={navigate("/home")}>
           <img onClick={navigate("/home")} src={logoLarge} alt="Big Lemon" />
         </div>
-        <div className={`menu ${isOpen ? "open" : ""}`}>
+        <input type="checkbox" id="isShownMenu" />
+        <div className="menu">
           <ul>
             <li>
               <a href="/">Home</a>
@@ -33,10 +29,10 @@ const NavBar = () => {
               <a href="/">Contact Us</a>
             </li>
           </ul>
-          <button className="menu-toggle" onClick={toggleMenu}>
-            <span>&#9776;</span>
-          </button>
         </div>
+        <label htmlFor="isShownMenu" className="menu-toggle">
+          <span>&#9776;</span>
+        </label>
       </nav>
     </header>
   );
