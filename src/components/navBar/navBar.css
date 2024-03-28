@@ -92,7 +92,7 @@
     justify-content: center;
   }
   .navbar ul {
-    display: block;
+    display: none;
   }
   .navbar li {
     display: block;
@@ -104,6 +104,6 @@
     text-align: center;
   }
   #isShownMenu:checked ~ .menu ul {
-    display: none;
+    display: block;
   }
 }
