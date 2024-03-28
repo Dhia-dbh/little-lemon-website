@@ -63,3 +63,20 @@
   margin: 5px 15px;
   border-radius: 15px;
 }
+
+@media screen and (max-width: 768px) {
+  .servicesListing {
+    flex-direction: column;
+  }
+  .service {
+    width: 80%;
+    margin: 20px auto;
+  }
+  .annoucement {
+    flex-direction: column;
+    align-items: center;
+  }
+  .sideImage img {
+    height: 250px;
+  }
+}

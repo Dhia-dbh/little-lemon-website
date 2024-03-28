@@ -59,9 +59,9 @@ const NewReservation = ({ onReserve }) => {
   };
 
   return (
-    <div>
+    <div className="reserve">
       <NavBar />
-      <h1>New Reservation</h1>
+      <h1 className="title">New Reservation</h1>
       <form id="newReservationForm" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name:</label>

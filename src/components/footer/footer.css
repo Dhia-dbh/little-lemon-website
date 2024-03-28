@@ -4,6 +4,7 @@ footer {
   justify-content: space-between;
   align-items: flex-start;
   background-color: #f8f8f8;
+  width: 100vw;
 }
 .logo_footer img {
   display: inline;
