@@ -11,24 +11,51 @@ const NewReservation = ({ onReserve }) => {
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  const [nameError, setNameError] = useState("");
+  const [dateError, setDateError] = useState("");
+  const [timeError, setTimeError] = useState("");
 
   const handleNameChange = (e) => {
     setName(e.target.value);
+    setNameError("");
   };
 
   const handleDateChange = (e) => {
     setDate(e.target.value);
+    setDateError("");
   };
 
   const handleTimeChange = (e) => {
     setTime(e.target.value);
+    setTimeError("");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate("/home");
-    onReserve();
-    // Add your reservation submission logic here
+
+    // Perform form validation
+    let isValid = true;
+
+    if (name.trim() === "") {
+      setNameError("Name is required");
+      isValid = false;
+    }
+
+    if (date.trim() === "") {
+      setDateError("Date is required");
+      isValid = false;
+    }
+
+    if (time.trim() === "") {
+      setTimeError("Time is required");
+      isValid = false;
+    }
+
+    if (isValid) {
+      navigate("/home");
+      onReserve();
+      // Add your reservation submission logic here
+    }
   };
 
   return (
@@ -45,6 +72,9 @@ const NewReservation = ({ onReserve }) => {
             value={name}
             onChange={handleNameChange}
           />
+          {nameError && (
+            <small className="form-text text-muted error">{nameError}</small>
+          )}
         </div>
 
         <div className="form-group">
@@ -56,6 +86,9 @@ const NewReservation = ({ onReserve }) => {
             value={date}
             onChange={handleDateChange}
           />
+          {dateError && (
+            <small className="form-text text-muted error">{dateError}</small>
+          )}
         </div>
 
         <div className="form-group">
@@ -67,6 +100,9 @@ const NewReservation = ({ onReserve }) => {
             value={time}
             onChange={handleTimeChange}
           />
+          {timeError && (
+            <small className="form-text text-muted error">{timeError}</small>
+          )}
         </div>
 
         <button className="btn btn-outline-primary" type="submit">

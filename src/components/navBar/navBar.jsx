@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import "./navBar.css";
 
 import logoLarge from "../../assets/logo-large.png";
+import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -14,7 +16,7 @@ const NavBar = () => {
     <header>
       <nav className="navbar">
         <div className="logo">
-          <img src={logoLarge} alt="Big Lemon" />
+          <img onClick={navigate("/home")} src={logoLarge} alt="Big Lemon" />
         </div>
         <div className={`menu ${isOpen ? "open" : ""}`}>
           <ul>
