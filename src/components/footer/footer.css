@@ -1,0 +1,15 @@
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #f8f8f8;
+}
+.logo_footer img {
+  display: inline;
+  margin-left: 10px;
+  height: 150px;
+}
+.contact {
+  margin: 15px 35px;
+}
