@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+.container {
+  height: 100vh;
+  overflow-y: hidden;
+}
+.not-found {
+  font-family: montserrat, sans-serif;
+  font-size: 252px;
+  font-weight: 900;
+  color: #262626;
+  letter-spacing: -40px;
+  text-align: center;
+}
+
+h1 > span {
+  text-shadow: -8px 0 0 #fff;
+}

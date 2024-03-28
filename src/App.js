@@ -1,72 +1,28 @@
-import NavBar from "./components/navBar/navBar";
-import Footer from "./components/footer/footer";
-import littleLemonRestaurant from "./assets/lemonRestaurant.jpg";
-
+import { useState } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Home from "./components/home/home";
+import NewReservation from "./components/newReservation/newReservation";
+import NotFound from "./components/commun/not-found/not-found";
 
 import "./App.css";
 
 function App() {
+  const [isReserved, setIsReserved] = useState(false);
+  const handleReserve = () => {
+    setIsReserved(true);
+  };
   return (
-    <div className="App">
-      <NavBar />
-      <main>
-        <div className="annoucement">
-          <section>
-            <h1>Welcome to Big Lemon</h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-              vehicula, justo ac fermentum ultrices, ex purus ultricies justo,
-              nec aliquet nunc erat nec felis. Donec sit amet elit auctor,
-              ultricies nisi vitae, tincidunt libero. In hac habitasse platea
-              dictumst. Sed ac semper nunc. Nulla facilisi. Nullam nec nunc et
-              mi tincidunt fermentum. Nulla facilisi. Nullam nec nunc et mi
-              tincidunt fermentum. Nulla facilisi. Nullam nec nunc et mi
-              tincidunt fermentum.
-            </p>
-            <button className="btn btn-primary">Reserve Your Table Now!</button>
-          </section>
-          <section className="sideImage">
-            <img
-              src={littleLemonRestaurant}
-              alt="Little Lemon Restaurant"
-            ></img>
-          </section>
-        </div>
-        <section className="services">
-          <h2>Today's Special</h2>
-          <div className="servicesListing">
-            <div className="service">
-              <h2>Tortellini</h2>
-              <img src="{}" alt="Meal 1"></img>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                vehicula, justo ac fermentum ultrices, ex purus ultricies justo,
-                nec aliquet nunc erat nec felis.
-              </p>
-            </div>
-            <div className="service">
-              <h2>Tortellini</h2>
-              <img src="{}" alt="Meal 2"></img>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                vehicula, justo ac fermentum ultrices, ex purus ultricies justo,
-                nec aliquet nunc erat nec felis.
-              </p>
-            </div>
-            <div className="service">
-              <h2>Tortellini</h2>
-              <img src="{}" alt="Meal 3"></img>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                vehicula, justo ac fermentum ultrices, ex purus ultricies justo,
-                nec aliquet nunc erat nec felis.
-              </p>
-            </div>
-          </div>
-        </section>
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to="/Home" />} />
+        <Route path="/Home" element={<Home isReserved={isReserved} />} />
+        <Route
+          path="/reservation/new"
+          element={<NewReservation onReserve={handleReserve} />}
+        />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
