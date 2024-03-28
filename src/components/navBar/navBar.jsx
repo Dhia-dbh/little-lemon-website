@@ -21,16 +21,16 @@ const NavBar = () => {
         <div className="menu">
           <ul>
             <li>
-              <a href="/">Home</a>
+              <a href="/home">Home</a>
             </li>
             <li>
-              <a href="/">About</a>
+              <a href="/about">About</a>
             </li>
             <li>
-              <a href="/">Services</a>
+              <a href="/services">Services</a>
             </li>
             <li>
-              <a href="/">Contact Us</a>
+              <a href="/contact">Contact Us</a>
             </li>
           </ul>
         </div>
